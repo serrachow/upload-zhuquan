@@ -41,21 +41,21 @@
 
             <div id="celltype_options">
               <label for="celltype_label_text" class="celltype_hidden">
-                <input type="text" id="celltype_label_text" name="celltype_label_text" placeholder="Celltype Label" />
+                <input disabled type="text" id="celltype_label_text" name="celltype_label_text" placeholder="Celltype Label" />
               </label>
 
               <label for="auto_generated_colors" class="celltype_hidden">
-                <input type="checkbox" id="auto_generated_colors" name="auto_generated_colors" />
+                <input checked type="checkbox" id="auto_generated_colors" name="auto_generated_colors"/>
                 Would you like auto-generated colors?
 
                 <div id="color_options">
-                  <label for="UNS_column" class="not_auto_colors">
-                    <input type="text" id="UNS_column" name="UNS_column" placeholder="UNS Column" />
+                  <label for="UNS_column" class="colors_hidden">
+                    <input disabled type="text" id="UNS_column" name="UNS_column" placeholder="UNS Column" />
                   </label>
 
-                  <label for="JSON" class="not_auto_colors">
+                  <label for="JSON" class="colors_hidden">
                     JSON File
-                    <input type="file" id="JSON" name="JSON" />
+                    <input disabled type="file" id="colors_JSON" name="JSON" />
                   </label>
                 </div>
               </label>
