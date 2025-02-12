@@ -38,20 +38,44 @@
           <label for="celltype_label" class="upload_settings_labels">
             <input type="checkbox" id="celltype_label" name="celltype_label"/> 
             Would you like celltype labels?
+
+            <div id="celltype_options">
+              <label for="celltype_label_text" class="celltype_hidden">
+                <input type="text" id="celltype_label_text" name="celltype_label_text" placeholder="Celltype Label" />
+              </label>
+
+              <label for="auto_generated_colors" class="celltype_hidden">
+                <input type="checkbox" id="auto_generated_colors" name="auto_generated_colors" />
+                Would you like auto-generated colors?
+
+                <div id="color_options">
+                  <label for="UNS_column" class="not_auto_colors">
+                    <input type="text" id="UNS_column" name="UNS_column" placeholder="UNS Column" />
+                  </label>
+
+                  <label for="JSON" class="not_auto_colors">
+                    JSON File
+                    <input type="file" id="JSON" name="JSON" />
+                  </label>
+                </div>
+              </label>
+
+            </div>
           </label>
 
-          <label for="celltype_label_text" class="upload_settings_labels">
-            <input type="text" id="celltype_label_text" name="celltype_label_text" placeholder="Celltype Label" />
-          </label>
-
-          <label for="colors" class="upload_settings_labels">
+          <!-- <label for="colors" class="upload_settings_labels">
             <input type="checkbox" id="colors" name="colors" />
             Would you like colors?
-          </label>
+          </label> -->
 
           <label for="raw_gene_counts" class="upload_settings_labels">
             <input type="checkbox" id="raw_gene_counts" name="raw_gene_counts"/>
-            Would you like raw gene counts?</label>
+            Would you like raw gene counts?
+
+            <label for="raw_gene_counts_text" class="raw_gene_hidden">
+              <input type="text" id="raw_gene_counts_text" name="raw_gene_counts_text" placeholder="raw_gene_counts_text" />
+            </label>
+          </label>
         </div>
       </div>
     </div>

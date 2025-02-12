@@ -137,10 +137,23 @@ h4 {
     margin-left: 6em;
 }
 
+.celltype_hidden, .raw_gene_hidden {
+    display: none;
+}
 
+.hidden2 {
+    /* display: none; */
+}
 
+#celltype_options {
+    display: flex;
+    flex-direction: column;
+}
 
-
+/* Class added to make celltype_labels and raw_gene_counts options show */
+.show {
+    display: block;
+}
 
 
 
