@@ -1,0 +1,213 @@
+* {
+    font-family: 'Inter', sans-serif;
+}
+
+body {
+    margin: 0;
+    background-color: rgb(21, 21, 21);
+    color: white;
+
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+header, footer {
+    text-align: center;
+    font-weight: normal;
+    font-size: 1.5em;
+}
+
+header {
+    border-bottom:#363636 1px solid;
+    margin-top: 0.5em;
+    padding-bottom: 0.5em;
+}
+
+footer {
+    border-top:#363636 1px solid;
+    margin-bottom: 0.5em;
+    padding-top: 0.5em;
+}
+
+h1 {
+    padding-left: 4em;
+    margin: 0;
+    margin-top: 0.7em;
+    margin-bottom: 0.8em;
+    font-weight: normal;
+}
+
+separator {
+    height: 85%;
+    width: 0.1em;
+    background-color: #363636;
+
+    align-self: center;
+}
+
+form {
+    flex-grow: 1;
+
+    display: flex;
+    flex-direction: column;
+}
+
+/* Top */
+#file_settings_container {
+    flex-grow: 1;
+
+    display: flex;
+    flex-direction: row;
+    /* border: 1px solid black; */
+}
+
+/* Step 1 Top Left */
+#h5ad_container {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+}
+
+h4 {
+    font-size: 1.2em;
+    margin: 0;
+    padding: 0;
+    font-weight: normal;
+    margin-left: 3em;
+    margin-top: 1em;
+}
+
+#shadow {
+    width: 60%;
+    height: 40%;
+    margin-top: 4em;
+    align-self: center;
+    display: flex;
+    background-color: rgb(48, 47, 47);
+    border-radius: 1em;
+    justify-content: center;
+}
+
+#h5ad_label {
+    width: 85%;
+    height: 70%;
+
+    align-self: center;
+    border-radius: 0.5em;
+    border: 2px dashed #bbb5b5;
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5em;
+}
+
+.h5ad_label_text {
+    margin: 0;
+    padding: 0;
+}
+
+#selected_file {
+    font-size: 0.8em;
+    color: rgb(172, 169, 169);
+}
+
+#h5ad_input {
+    display: none;
+}
+
+/* Step 2 Top Right */
+#step2_container {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+}
+
+#upload_settings {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+    margin-top: 1.5em;
+}
+
+.upload_settings_labels {
+    margin-left: 6em;
+}
+
+.celltype_hidden, .colors_hidden, .raw_gene_hidden {
+    display: none;
+}
+
+.hidden2 {
+    /* display: none; */
+}
+
+#celltype_options {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Class added to make celltype_labels and raw_gene_counts options show */
+.show {
+    display: block;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Bottom Left Details Container */
+#submission_container {
+    flex-grow: 1;
+
+    display: flex;
+    flex-direction: row;
+    /* border: 1px solid black; */
+}
+
+#details_container {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: center;
+}
+
+#submit_button {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#email, #name, #dataset_name {
+    width: 50%;
+}
+
+#submit {
+    border: 1px solid #ccc;
+    display: inline-block;
+    padding: 6px 12px;
+    cursor: pointer;
+}
+
+/* https://stackoverflow.com/questions/572768/styling-an-input-type-file-button */
