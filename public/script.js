@@ -13,49 +13,122 @@ const colors_JSON = document.getElementById('colors_JSON');
 const celltype_label = document.getElementById('celltype_label');
 const celltype_hidden = document.querySelectorAll('.celltype_hidden');
 const celltype_label_text = document.getElementById('celltype_label_text');
+
+const auto_generated_colors = document.getElementById('auto_generated_colors');
+const colors_hidden = document.querySelectorAll('.colors_hidden');
+const UNS_Chosen = document.getElementById('UNS_Chosen');
+const JSON_Chosen = document.getElementById('JSON_Chosen');
+const selected_colors_hidden = document.querySelectorAll('.selected_colors_hidden');
+
 celltype_label.addEventListener('click', (event) => {
     if (celltype_label.checked) {
         celltype_hidden.forEach((element) => {
             element.classList.add('show');
         });
+
         celltype_label_text.required = true;
         celltype_label_text.disabled = false;
+        auto_generated_colors.disabled = false;
+
+        // Maintain auto_generated_colors
+        Auto_generated_colors_checked();
+        Auto_generated_colors_unchecked();
     }
 
     if (!celltype_label.checked) {
         celltype_hidden.forEach((element) => {
             element.classList.remove('show');
         });
+
         celltype_label_text.required = false;
-        UNS_column.disabled = true;
-        colors_JSON.disabled = true;
         celltype_label_text.disabled = true;
+
+        // Disable everything nested
+        auto_generated_colors.disabled = true;
+        UNS_Chosen.disabled = true;
+        JSON_Chosen.disabled = true;
+        UNS_column.disabled = true;
+        UNS_column.required = false;
+        colors_JSON.disabled = true;
+        colors_JSON.required = false;
+
     }
 });
 
-const auto_generated_colors = document.getElementById('auto_generated_colors');
-const colors_hidden = document.querySelectorAll('.colors_hidden');
 auto_generated_colors.addEventListener('click', (event) => {
-    if (!auto_generated_colors.checked) {
-        colors_hidden.forEach((element) => {
-            element.classList.add('show');
-        });
-        UNS_column.required = true;
-        colors_JSON.required = true;
-        UNS_column.disabled = false;
-        colors_JSON.disabled = false;
-    }
+    // If checked then hide optional color options
+    Auto_generated_colors_checked();
+    Auto_generated_colors_unchecked();
+});
 
+// Since if they were clicked then they become the primary option
+// selected_colors_hidden[0] is UNS option
+// selected_colors_hidden[1] is JSON option
+UNS_Chosen.addEventListener('click', (event) => {
+    UNS_Chosen_Checked();
+});
+
+JSON_Chosen.addEventListener('click', (event) => {
+    JSON_Chosen_Checked();
+});
+
+function UNS_Chosen_Checked() {
+    if (UNS_Chosen.checked) {
+        selected_colors_hidden[0].classList.add("show");
+        UNS_column.disabled = false;
+        UNS_column.required = true;
+
+        selected_colors_hidden[1].classList.remove("show");
+        colors_JSON.disabled = true;
+        colors_JSON.required = false;
+    }
+}
+
+function JSON_Chosen_Checked() {
+    if (JSON_Chosen.checked) {
+        selected_colors_hidden[1].classList.add("show");
+        colors_JSON.disabled = false;
+        colors_JSON.required = true;
+
+        selected_colors_hidden[0].classList.remove("show");
+        UNS_column.disabled = true;
+        UNS_column.required = false;
+    }
+}
+
+function Auto_generated_colors_checked() {
     if (auto_generated_colors.checked) {
         colors_hidden.forEach((element) => {
             element.classList.remove('show');
         });
-        UNS_column.required = false;
-        colors_JSON.required = false;
+
+        UNS_Chosen.disabled = true;
+        JSON_Chosen.disabled = true;
+
+        // Disable nested options
+        selected_colors_hidden[0].classList.remove("show");
         UNS_column.disabled = true;
+        UNS_column.required = false;
+        selected_colors_hidden[1].classList.remove("show");
         colors_JSON.disabled = true;
+        colors_JSON.required = false;
     }
-});
+}
+
+function Auto_generated_colors_unchecked() {
+    if (!auto_generated_colors.checked) {
+        colors_hidden.forEach((element) => {
+            element.classList.add('show');
+        });
+
+        UNS_Chosen.disabled = false;
+        JSON_Chosen.disabled = false;
+
+        // Maintain previous choices
+        UNS_Chosen_Checked();
+        JSON_Chosen_Checked();
+    }
+}
 
 const raw_gene_counts = document.getElementById('raw_gene_counts');
 const raw_gene_hidden = document.querySelectorAll('.raw_gene_hidden');
@@ -66,6 +139,7 @@ raw_gene_counts.addEventListener('click', (event) => {
         raw_gene_hidden.forEach((element) => {
             element.classList.add('show');
             raw_gene_counts_text.required = true;
+            raw_gene_counts_text.disabled = false;
         });
     }
 
@@ -73,9 +147,11 @@ raw_gene_counts.addEventListener('click', (event) => {
         raw_gene_hidden.forEach((element) => {
             element.classList.remove('show');
             raw_gene_counts_text.required = false;
+            raw_gene_counts_text.disabled = true;
         });
     }
 });
+
 document.getElementById('complete-upload-button').addEventListener('click', async () => {
     // Example of upload completion logic
     const uploadData = {

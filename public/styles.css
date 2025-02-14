@@ -137,7 +137,7 @@ h4 {
     margin-left: 6em;
 }
 
-.celltype_hidden, .colors_hidden, .raw_gene_hidden {
+.celltype_hidden, .colors_hidden, .raw_gene_hidden, .selected_colors_hidden {
     display: none;
 }
 
@@ -152,7 +152,7 @@ h4 {
 
 /* Class added to make celltype_labels and raw_gene_counts options show */
 .show {
-    display: block;
+    display: inline;
 }
 
 

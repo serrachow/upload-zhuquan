@@ -49,14 +49,26 @@
                 Would you like auto-generated colors?
 
                 <div id="color_options">
-                  <label for="UNS_column" class="colors_hidden">
-                    <input disabled type="text" id="UNS_column" name="UNS_column" placeholder="UNS Column" />
+                  <label for="UNS_Chosen" class="colors_hidden">
+                    UNS Colors Column
+                    <input disabled type="radio" id="UNS_Chosen" name="UNS_JSON_CHOICE">
+                  </label>
+                  <label for="JSON_Chosen" class="colors_hidden">
+                    JSON File (Color Palette)
+                    <input disabled type="radio" id="JSON_Chosen" name="UNS_JSON_CHOICE">
                   </label>
 
-                  <label for="JSON" class="colors_hidden">
-                    JSON File
-                    <input disabled type="file" id="colors_JSON" name="colorsJSON" />
-                  </label>
+                  <div id="selected_color_option">
+
+                    <label for="UNS_column" class="selected_colors_hidden">
+                      <input disabled type="text" id="UNS_column" name="UNS_column" placeholder="UNS Column" />
+                    </label>
+
+                    <label for="JSON" class="selected_colors_hidden">
+                      JSON File
+                      <input disabled type="file" id="colors_JSON" name="colorsJSON" />
+                    </label>
+                  </div>
                 </div>
               </label>
 
@@ -73,7 +85,7 @@
             Would you like raw gene counts?
 
             <label for="raw_gene_counts_text" class="raw_gene_hidden">
-              <input type="text" id="raw_gene_counts_text" name="raw_gene_counts_text" placeholder="raw_gene_counts_text" />
+              <input disabled type="text" id="raw_gene_counts_text" name="raw_gene_counts_text" placeholder="raw_gene_counts_text" />
             </label>
           </label>
         </div>
