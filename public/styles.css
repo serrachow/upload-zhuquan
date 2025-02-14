@@ -89,6 +89,11 @@ h4 {
     justify-content: center;
 }
 
+#shadow:hover {
+    cursor: pointer;
+    background-color: rgb(71, 71, 71);
+}
+
 #h5ad_label {
     width: 85%;
     height: 70%;
@@ -102,6 +107,7 @@ h4 {
     justify-content: center;
     align-items: center;
     gap: 0.5em;
+    cursor: pointer;
 }
 
 .h5ad_label_text {
@@ -126,23 +132,20 @@ h4 {
 }
 
 #upload_settings {
-    width: 100%;
+    width: 70%;
     display: flex;
     flex-direction: column;
     /* align-items: center; */
-    margin-top: 1.5em;
-}
-
-.upload_settings_labels {
-    margin-left: 6em;
+    background-color: rgb(48, 47, 47);
+    border-radius: 1em;
+    align-self: center;
+    margin-top: 4em;
+    padding: 1em;
+    padding-left: 2em;
 }
 
 .celltype_hidden, .colors_hidden, .raw_gene_hidden, .selected_colors_hidden {
     display: none;
-}
-
-.hidden2 {
-    /* display: none; */
 }
 
 #celltype_options {
@@ -155,8 +158,84 @@ h4 {
     display: inline;
 }
 
+/* Step 2 Styling */
+#celltype_label_text {
+    margin-left: 3em;
+    margin-top: 0.3em;
+    margin-bottom: 0.3em;
+}
+
+#color_options {
+    display: flex;
+    flex-direction: column;
+}
+
+#color_options label {
+    margin-left: 2.5em;
+}
+
+#raw_gene_counts_text {
+    margin-left: 3em;
+    margin-top: 0.3em;
+}
+
+/* https://stackoverflow.com/questions/306252/how-to-align-checkboxes-and-their-labels-consistently-cross-browsers */
+input[type="checkbox"] {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    width: 1.8em;
+    height: 1.8em;
+    border: 2px solid rgb(100, 100, 100);
+    border-radius: 2px;
+    cursor: pointer;
+    vertical-align: middle;
+    position: relative;
+    bottom: 1px;
+}
+
+input[type="checkbox"]:checked {
+    background-color: rgba(238, 238, 238, 0.8);
+    border-color: rgb(100, 100, 100);
+}
 
 
+input[type="text"], input[type="email"], input[type="name"] {
+    padding: 0.5em;
+    width: 70%;
+}
+
+input[type="radio"] {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    width: 1.8em;
+    height: 1.8em;
+    border: 2px solid rgb(100, 100, 100);
+    border-radius: 50px; 
+    cursor: pointer;
+    vertical-align: middle;
+    position: relative;
+    bottom: 1px; 
+}
+
+input[type="radio"]:checked {
+    background-color: rgba(238, 238, 238, 0.8);
+    border-color: rgb(100, 100, 100);
+}
+
+/* https://stackoverflow.com/questions/572768/styling-an-input-type-file-button */
+#colors_JSON::file-selector-button {
+    padding: .4em .6em;
+    border-radius: 4px;
+    border: none;
+    background-color: rgba(238, 238, 238, 0.8);
+}
+
+#colors_JSON::file-selector-button:hover {
+    cursor: pointer;
+    background-color: rgba(158, 158, 158, 0.8);
+}
 
 
 
@@ -180,7 +259,6 @@ h4 {
 
     display: flex;
     flex-direction: row;
-    /* border: 1px solid black; */
 }
 
 #details_container {

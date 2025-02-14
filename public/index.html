@@ -24,7 +24,6 @@
             <p id="selected_file" class="h5ad_label_text">File selected:</p>
             <input accept=".h5ad" type="file" id="h5ad_input" name="h5adFile" required /> 
           </label>
-          <!-- <input type="file" id="h5ad_input" name="h5adfile" required />  -->
         </div>
       </div>
 
@@ -65,8 +64,7 @@
                     </label>
 
                     <label for="JSON" class="selected_colors_hidden">
-                      JSON File
-                      <input disabled type="file" id="colors_JSON" name="colorsJSON" />
+                      <input disabled type="file" id="colors_JSON" name="colorsJSON" accept=".json" />
                     </label>
                   </div>
                 </div>
@@ -74,11 +72,6 @@
 
             </div>
           </label>
-
-          <!-- <label for="colors" class="upload_settings_labels">
-            <input type="checkbox" id="colors" name="colors" />
-            Would you like colors?
-          </label> -->
 
           <label for="raw_gene_counts" class="upload_settings_labels">
             <input type="checkbox" id="raw_gene_counts" name="raw_gene_counts"/>
