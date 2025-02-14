@@ -11,16 +11,16 @@
   <h1>Merfisheyes Upload</h1>
 
   <!-- Form Container -->
-  <form action="/upload" method="POST" enctype="multipart/form-data">
+  <form id="upload_form" action="/upload" method="POST" enctype="multipart/form-data">
 
     <div id="file_settings_container">
       <!-- File input -->
       <div id="h5ad_container">
-        <h4>Step 1: Select a file for upload</h4>
+        <h4>Step 1: Select a h5ad file for upload!</h4>
 
         <div id="shadow">
           <label id="h5ad_label" for="h5ad_input">
-            <p class="h5ad_label_text">Upload a file</p>
+            <p class="h5ad_label_text">Upload a h5ad file</p>
             <p id="selected_file" class="h5ad_label_text">File selected:</p>
             <input accept=".h5ad" type="file" id="h5ad_input" name="h5adFile" required /> 
           </label>
@@ -30,7 +30,7 @@
       <separator></separator>
 
       <div id="step2_container">
-        <h4>Step 2: Upload Settings</h4>
+        <h4>Step 2: Customize upload settings!</h4>
 
         <!-- Upload Settings -->
         <div id="upload_settings">
@@ -40,7 +40,7 @@
 
             <div id="celltype_options">
               <label for="celltype_label_text" class="celltype_hidden">
-                <input disabled type="text" id="celltype_label_text" name="celltype_label_text" placeholder="Celltype Label" />
+                <input disabled type="text" id="celltype_label_text" name="celltype_label_text" placeholder="Celltype Column Name in .obs" />
               </label>
 
               <label for="auto_generated_colors" class="celltype_hidden">
@@ -49,18 +49,19 @@
 
                 <div id="color_options">
                   <label for="UNS_Chosen" class="colors_hidden">
-                    UNS Colors Column
+                    UNS Column 
                     <input disabled type="radio" id="UNS_Chosen" name="UNS_JSON_CHOICE">
                   </label>
                   <label for="JSON_Chosen" class="colors_hidden">
-                    JSON File (Color Palette)
+                    <!-- https://stackoverflow.com/questions/67754073/how-to-add-a-blank-space-in-html -->
+                    JSON File &emsp;
                     <input disabled type="radio" id="JSON_Chosen" name="UNS_JSON_CHOICE">
                   </label>
 
                   <div id="selected_color_option">
 
                     <label for="UNS_column" class="selected_colors_hidden">
-                      <input disabled type="text" id="UNS_column" name="UNS_column" placeholder="UNS Column" />
+                      <input disabled type="text" id="UNS_column" name="UNS_column" placeholder=".uns[uns_colors_column]" />
                     </label>
 
                     <label for="JSON" class="selected_colors_hidden">
@@ -78,7 +79,7 @@
             Would you like raw gene counts?
 
             <label for="raw_gene_counts_text" class="raw_gene_hidden">
-              <input disabled type="text" id="raw_gene_counts_text" name="raw_gene_counts_text" placeholder="raw_gene_counts_text" />
+              <input disabled type="text" id="raw_gene_counts_text" name="raw_gene_counts_text" placeholder="Raw column: .obsm[column]" />
             </label>
           </label>
         </div>
@@ -89,24 +90,39 @@
     <div id="submission_container">
 
       <div id="details_container">
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" placeholder="email@host.com" required />
+        <h4>Step 3: Enter your submission details!</h4>
 
-        <label for="name">Name:</label>
-        <input type="name" id="name" name="name" placeholder="Your Name" required />
+        <div id="details_pair_container">
+          <div class="details_pair">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" placeholder="email@host.com" required />
+          </div>
 
-        <label for="dataset_name">Dataset Name:</label>
-        <input type="text" id="dataset_name" name="dataset_name" placeholder="Dataset Name" required />
+          <div class="details_pair">
+            <label for="name">Name:</label>
+            <input type="name" id="name" name="name" placeholder="Your Name" required />
+          </div>
+
+          <div class="details_pair">
+            <label for="dataset_name">Dataset Name:</label>
+            <input type="text" id="dataset_name" name="dataset_name" placeholder="Dataset Name" required />
+          </div>
+        </div>
       </div>
 
       <separator></separator>
 
       <div id="submit_button">
+        <h4>Step 4: Upload!</h4>
         <input id="submit" type="submit" value="Upload" />
       </div>
     </div>
 
   </form>
+
+  <h3 id="post_upload_text" class="hidden">File is currently uploading.</h3>
+  <!-- https://stackoverflow.com/questions/29884654/button-that-refreshes-the-page-on-click -->
+  <button id="refresh_button" class="hidden" onClick="window.location.reload();">Click here to submit another file!</button>
 
   <footer>MERFISHEYES</footer>
 </body>

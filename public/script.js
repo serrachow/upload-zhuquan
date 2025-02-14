@@ -152,6 +152,15 @@ raw_gene_counts.addEventListener('click', (event) => {
     }
 });
 
+// Upon submit clicked successful
+const upload_form = document.getElementById('uploadForm');
+const post_upload_text = document.getElementById('post_upload_text');
+const refresh_button = document.getElementById('refresh_button');
+upload_form.addEventListener('submit', (event) => {
+    post_upload_text.classList.remove('hidden');
+    refresh_button.classList.remove('hidden');
+});
+
 document.getElementById('complete-upload-button').addEventListener('click', async () => {
     // Example of upload completion logic
     const uploadData = {
